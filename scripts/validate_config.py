@@ -67,18 +67,24 @@ def _conda_env_exists(env_name: str) -> bool:
     return any(line.split() and line.split()[0] == env_name for line in result.stdout.splitlines())
 
 
-def _torch_cuda_status():
-    if importlib.util.find_spec("torch") is None:
-        return False, "torch is not importable in this Python environment"
-
+def _torch_cuda_status(conda_env: str | None = None):
     code = (
         "import torch; "
         "print(torch.__version__); "
         "print(torch.cuda.is_available()); "
         "print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else '')"
     )
+    if conda_env:
+        if not shutil.which("conda"):
+            return False, "conda is not available for CUDA probe"
+        cmd = ["conda", "run", "-n", conda_env, "--no-capture-output", "python", "-c", code]
+    else:
+        if importlib.util.find_spec("torch") is None:
+            return False, "torch is not importable in this Python environment"
+        cmd = [sys.executable, "-c", code]
+
     result = subprocess.run(
-        [sys.executable, "-c", code],
+        cmd,
         capture_output=True,
         text=True,
         check=False,
@@ -168,8 +174,14 @@ def validate_config(config_path: Path, require_realsense: bool = False) -> list[
     else:
         _add(checks, "SKIP", "SAM3D", "skip_sam3d=true")
 
-    if not skip_sam3 or not skip_sam3d:
-        cuda_ok, cuda_detail = _torch_cuda_status()
+    cuda_probe_env = None
+    if not skip_sam3d:
+        cuda_probe_env = str(config.get("sam3d_env", "sam3d-objects"))
+    elif not skip_sam3:
+        cuda_probe_env = str(config.get("sam3_env", "sam3"))
+
+    if cuda_probe_env:
+        cuda_ok, cuda_detail = _torch_cuda_status(cuda_probe_env)
         _add(checks, "OK" if cuda_ok else "ERROR", "PyTorch CUDA", cuda_detail)
     else:
         _add(checks, "SKIP", "PyTorch CUDA", "SAM3 and SAM3D are skipped")
@@ -220,4 +232,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

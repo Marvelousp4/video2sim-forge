@@ -1,0 +1,43 @@
+{
+  "input_dir": "<demo_capture>",
+  "output_dir": "<ubuntu_demo_outputs>",
+  "timestamp": "2026-07-04T19:00:55",
+  "total_s": 69.036,
+  "steps": [
+    {
+      "name": "Step 1: Gemini",
+      "duration_s": 0.0,
+      "status": "skipped"
+    },
+    {
+      "name": "Step 2: SAM3",
+      "duration_s": 10.513,
+      "status": "completed"
+    },
+    {
+      "name": "Step 3: SAM3D",
+      "duration_s": 47.429,
+      "status": "completed"
+    },
+    {
+      "name": "Step 4: Assemble Output",
+      "duration_s": 0.001,
+      "status": "completed"
+    },
+    {
+      "name": "Step 5: Export Transforms",
+      "duration_s": 3.556,
+      "status": "completed"
+    },
+    {
+      "name": "Step 6: Visualize",
+      "duration_s": 4.607,
+      "status": "completed"
+    },
+    {
+      "name": "Step 7: OBJ to URDF",
+      "duration_s": 2.93,
+      "status": "completed"
+    }
+  ]
+}

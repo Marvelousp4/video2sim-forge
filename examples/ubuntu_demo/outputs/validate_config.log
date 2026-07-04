@@ -1,0 +1,16 @@
+[OK   ] input_dir          <demo_capture>
+[OK   ] output_dir         <ubuntu_demo_outputs>
+[OK   ] RGB video          <demo_capture>/color_video.mp4
+[OK   ] depth input        <demo_capture>/depth/0.png
+[OK   ] camera intrinsics  <demo_capture>/cam_params.txt
+[OK   ] SAM3 image         <demo_capture>/scene_capture/image/0.png
+[OK   ] SAM3D image        <demo_capture>/scene_capture/image/0.png
+[OK   ] SAM3D depth        <demo_capture>/scene_capture/depth/0.png
+[SKIP ] GEMINI_API_KEY     skip_gemini=true
+[OK   ] conda env SAM3     sam3
+[OK   ] SAM3_ROOT          <video2sim2real_scene_reconstruction>/sam3
+[OK   ] conda env SAM3D    sam3d-objects
+[OK   ] SAM3D_ROOT         <video2sim2real_scene_reconstruction>/sam-3d-objects
+[OK   ] PyTorch CUDA       torch 2.8.0+cu128, NVIDIA GeForce RTX 5090
+[OK   ] camera_frame_json  <demo_capture>/camera_frame_pose.json
+[SKIP ] RealSense          optional; pass --require-realsense to check

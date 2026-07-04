@@ -1,0 +1,14 @@
+{
+  "0": {
+    "prompt_idx": 0,
+    "prompt": "light blue bowl",
+    "fallback_prompt": "bowl",
+    "prompt_used": "light blue bowl"
+  },
+  "1": {
+    "prompt_idx": 1,
+    "prompt": "orange fruit",
+    "fallback_prompt": "fruit",
+    "prompt_used": "orange fruit"
+  }
+}

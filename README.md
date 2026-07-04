@@ -112,8 +112,10 @@ scene preview from a completed bowl-and-fruit capture. The proof run includes a
 short capture video, first/middle/last input frames, and the final transformed
 scene visualization.
 
-The full Ubuntu GPU demo path is reserved at
-[examples/ubuntu_demo](examples/ubuntu_demo):
+The Ubuntu GPU proof run lives at [examples/ubuntu_demo](examples/ubuntu_demo).
+It includes sanitized validator output, environment details, run log, masks,
+scene JSON files, URDFs, timing, and the final visualization screenshot. To run
+the same shape on a local approved capture:
 
 ```bash
 python scripts/validate_config.py --config examples/ubuntu_demo/config.yaml

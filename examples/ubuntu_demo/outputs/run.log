@@ -1,0 +1,300 @@
+================================================================================
+STEP 2: SAM3 Segmentation
+================================================================================
+Image: <demo_capture>/scene_capture/image/0.png
+Prompts: <ubuntu_demo_outputs>/gemini_scene.json
+Output: <ubuntu_demo_outputs>
+
+Loaded 2 prompts:
+  0: light blue bowl   (fallback: bowl)
+  1: orange fruit   (fallback: fruit)
+
+----------------------------------------
+Loading SAM3 model...
+Loading image: <demo_capture>/scene_capture/image/0.png
+
+Processing prompt 0: 'light blue bowl'
+  Found 1 instance(s); selecting best
+  Selected best with confidence: 0.875
+  Saved: mask_000.png  (prompt used: 'light blue bowl')
+
+Processing prompt 1: 'orange fruit'
+  Found 1 instance(s); selecting best
+  Selected best with confidence: 0.930
+  Saved: mask_001.png  (prompt used: 'orange fruit')
+
+Total masks created: 2 (prompts: 2)
+Mapping saved to: <ubuntu_demo_outputs>/mask_to_prompt_mapping.json
+
+================================================================================
+STEP 2 COMPLETE
+================================================================================
+Generated 2 masks in: <ubuntu_demo_outputs>
+2026-07-04 19:00:02.567 | INFO     | sam3d_objects.pipeline.inference_pipeline:set_attention_backend:15 - GPU name is NVIDIA GeForce RTX 5090
+2026-07-04 19:00:03.608 | INFO     | sam3d_objects.model.backbone.tdfy_dit.modules.sparse:__from_env:39 - [SPARSE] Backend: spconv, Attention: sdpa
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:47: FutureWarning: `torch.cuda.amp.custom_fwd(args...)` is deprecated. Please use `torch.amp.custom_fwd(args..., device_type='cuda')` instead.
+  _TORCH_CUSTOM_FWD = amp.custom_fwd(cast_inputs=torch.float16)
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:96: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:162: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:242: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:331: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:368: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:388: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/spconv/pytorch/functional.py:411: FutureWarning: `torch.cuda.amp.custom_bwd(args...)` is deprecated. Please use `torch.amp.custom_bwd(args..., device_type='cuda')` instead.
+  @_TORCH_CUSTOM_BWD
+2026-07-04 19:00:05.631 | INFO     | sam3d_objects.model.backbone.tdfy_dit.modules.attention:__from_env:30 - [ATTENTION] Using backend: sdpa
+2026-07-04 19:00:06.077 | WARNING  | sam3d_objects.data.dataset.tdfy.preprocessor:__post_init__:51 - No rgb pointmap normalizer provided, using scale + shift 
+2026-07-04 19:00:06.077 | WARNING  | sam3d_objects.data.dataset.tdfy.preprocessor:__post_init__:51 - No rgb pointmap normalizer provided, using scale + shift 
+2026-07-04 19:00:06.098 | WARNING  | sam3d_objects.data.dataset.tdfy.preprocessor:__post_init__:51 - No rgb pointmap normalizer provided, using scale + shift 
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+<miniconda>/envs/sam3d-objects/lib/python3.11/site-packages/moge/model/v1.py:171: UserWarning: The following deprecated/invalid arguments are ignored: {'output_mask': True, 'split_head': True}
+  warnings.warn(f"The following deprecated/invalid arguments are ignored: {deprecated_kwargs}")
+2026-07-04 19:00:09.265 | WARNING  | sam3d_objects.data.dataset.tdfy.preprocessor:__post_init__:51 - No rgb pointmap normalizer provided, using scale + shift 
+2026-07-04 19:00:09.266 | INFO     | sam3d_objects.pipeline.inference_pipeline:__init__:98 - self.device: cuda
+2026-07-04 19:00:09.266 | INFO     | sam3d_objects.pipeline.inference_pipeline:__init__:99 - CUDA_VISIBLE_DEVICES: None
+2026-07-04 19:00:09.266 | INFO     | sam3d_objects.pipeline.inference_pipeline:__init__:100 - Actually using GPU: 0
+2026-07-04 19:00:09.266 | INFO     | sam3d_objects.pipeline.inference_pipeline:init_pose_decoder:295 - Using pose decoder: ScaleShiftInvariant
+2026-07-04 19:00:09.266 | INFO     | sam3d_objects.pipeline.inference_pipeline:__init__:131 - Loading model weights...
+2026-07-04 19:00:09.387 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/ss_generator.ckpt
+2026-07-04 19:00:14.931 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/slat_generator.ckpt
+2026-07-04 19:00:16.609 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/ss_decoder.ckpt
+2026-07-04 19:00:16.731 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/slat_decoder_gs.ckpt
+2026-07-04 19:00:16.835 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/slat_decoder_gs_4.ckpt
+2026-07-04 19:00:16.949 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/slat_decoder_mesh.ckpt
+2026-07-04 19:00:17.105 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:31 - Loading DINO model: dinov2_vitl14_reg from facebookresearch/dinov2 (source: github)
+2026-07-04 19:00:18.139 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:44 - Loaded DINO model - type: <class 'dinov2.models.vision_transformer.DinoVisionTransformer'>, embed_dim: 1024, patch_size: (14, 14)
+2026-07-04 19:00:18.141 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:31 - Loading DINO model: dinov2_vitl14_reg from facebookresearch/dinov2 (source: github)
+2026-07-04 19:00:18.452 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:44 - Loaded DINO model - type: <class 'dinov2.models.vision_transformer.DinoVisionTransformer'>, embed_dim: 1024, patch_size: (14, 14)
+2026-07-04 19:00:18.459 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/ss_generator.ckpt
+2026-07-04 19:00:21.561 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:31 - Loading DINO model: dinov2_vitl14_reg from facebookresearch/dinov2 (source: github)
+2026-07-04 19:00:21.868 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:44 - Loaded DINO model - type: <class 'dinov2.models.vision_transformer.DinoVisionTransformer'>, embed_dim: 1024, patch_size: (14, 14)
+2026-07-04 19:00:21.870 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:31 - Loading DINO model: dinov2_vitl14_reg from facebookresearch/dinov2 (source: github)
+2026-07-04 19:00:22.191 | INFO     | sam3d_objects.model.backbone.dit.embedder.dino:__init__:44 - Loaded DINO model - type: <class 'dinov2.models.vision_transformer.DinoVisionTransformer'>, embed_dim: 1024, patch_size: (14, 14)
+2026-07-04 19:00:22.193 | INFO     | sam3d_objects.model.io:load_model_from_checkpoint:158 - Loading checkpoint from <video2sim2real_scene_reconstruction>/sam-3d-objects/checkpoints/hf/slat_generator.ckpt
+2026-07-04 19:00:24.396 | INFO     | sam3d_objects.pipeline.inference_pipeline:override_ss_generator_cfg_config:436 - ss_generator parameters: inference_steps=25, cfg_strength=7, cfg_interval=[0, 500], rescale_t=3, cfg_strength_pm=0.0
+2026-07-04 19:00:24.396 | INFO     | sam3d_objects.pipeline.inference_pipeline:override_slat_generator_cfg_config:458 - slat_generator parameters: inference_steps=25, cfg_strength=1, cfg_interval=[0, 500], rescale_t=1
+2026-07-04 19:00:24.396 | INFO     | sam3d_objects.pipeline.inference_pipeline:__init__:196 - Loading model weights completed!
+2026-07-04 19:00:24.622 | INFO     | sam3d_objects.pipeline.inference_pipeline:sample_sparse_structure:662 - Sampling sparse structure: inference_steps=25, strength=7, interval=[0, 500], rescale_t=3, cfg_strength_pm=0.0
+2026-07-04 19:00:24.623 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:631 - Running condition embedder ...
+2026-07-04 19:00:24.845 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:635 - Condition embedder finishes!
+2026-07-04 19:00:28.164 | INFO     | sam3d_objects.pipeline.inference_pipeline:sample_sparse_structure:712 - Downsampled coords from 8890 to 8890
+2026-07-04 19:00:28.194 | INFO     | sam3d_objects.pipeline.inference_pipeline_pointmap:run:368 - Rescaling scale by 1 after downsampling
+2026-07-04 19:00:28.194 | INFO     | sam3d_objects.pipeline.inference_pipeline:sample_slat:742 - Sampling sparse latent: inference_steps=25, strength=1, interval=[0, 500], rescale_t=1
+2026-07-04 19:00:28.194 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:631 - Running condition embedder ...
+2026-07-04 19:00:28.219 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:635 - Condition embedder finishes!
+2026-07-04 19:00:30.479 | INFO     | sam3d_objects.pipeline.inference_pipeline:decode_slat:604 - Decoding sparse latent...
+2026-07-04 19:00:33.085 | INFO     | sam3d_objects.pipeline.inference_pipeline:postprocess_slat_output:538 - Postprocessing mesh with option with_mesh_postprocess False, with_texture_baking False...
+2026-07-04 19:00:33.092 | INFO     | sam3d_objects.pipeline.inference_pipeline_pointmap:run:416 - Finished!
+2026-07-04 19:00:33.496 | INFO     | sam3d_objects.pipeline.inference_pipeline:sample_sparse_structure:662 - Sampling sparse structure: inference_steps=25, strength=7, interval=[0, 500], rescale_t=3, cfg_strength_pm=0.0
+2026-07-04 19:00:33.496 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:631 - Running condition embedder ...
+2026-07-04 19:00:33.542 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:635 - Condition embedder finishes!
+2026-07-04 19:00:36.825 | INFO     | sam3d_objects.pipeline.inference_pipeline:sample_sparse_structure:712 - Downsampled coords from 18610 to 18610
+2026-07-04 19:00:36.828 | INFO     | sam3d_objects.pipeline.inference_pipeline_pointmap:run:368 - Rescaling scale by 1 after downsampling
+2026-07-04 19:00:36.828 | INFO     | sam3d_objects.pipeline.inference_pipeline:sample_slat:742 - Sampling sparse latent: inference_steps=25, strength=1, interval=[0, 500], rescale_t=1
+2026-07-04 19:00:36.828 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:631 - Running condition embedder ...
+2026-07-04 19:00:36.853 | INFO     | sam3d_objects.pipeline.inference_pipeline:get_condition_input:635 - Condition embedder finishes!
+2026-07-04 19:00:40.593 | INFO     | sam3d_objects.pipeline.inference_pipeline:decode_slat:604 - Decoding sparse latent...
+2026-07-04 19:00:41.073 | INFO     | sam3d_objects.pipeline.inference_pipeline:postprocess_slat_output:538 - Postprocessing mesh with option with_mesh_postprocess False, with_texture_baking False...
+2026-07-04 19:00:41.088 | INFO     | sam3d_objects.pipeline.inference_pipeline_pointmap:run:416 - Finished!
+[SPARSE][CONV] spconv algo: auto
+================================================================================
+STEP 3: SAM3D 3D Reconstruction
+================================================================================
+Image: <demo_capture>/scene_capture/image/0.png
+Depth: <demo_capture>/scene_capture/depth/0.png
+Masks: <ubuntu_demo_outputs>
+Intrinsics: <demo_capture>/cam_params.txt
+Output: <ubuntu_demo_outputs>
+
+----------------------------------------
+Loading camera intrinsics: <demo_capture>/cam_params.txt
+  fx=385.40, fy=385.40, cx=317.40, cy=244.00
+
+Loading SAM3D inference pipeline...
+Loading image: <demo_capture>/scene_capture/image/0.png
+Loading depth: <demo_capture>/scene_capture/depth/0.png
+Generating pointmap from depth...
+Found 2 masks
+
+Processing mask 0 (prompt 0): mask_000.png
+  Running SAM3D inference...
+  Saved mesh: obj_0000.obj
+  Position: [0.0880712941288948, -0.08564990758895874, 0.491030752658844]
+  Orientation (xyzw): [0.2662656605243683, 0.879479706287384, 0.3773201107978821, 0.11509814113378525]
+
+Processing mask 1 (prompt 1): mask_001.png
+  Running SAM3D inference...
+  Saved mesh: obj_0001.obj
+  Position: [-0.1170576885342598, -0.008304985240101814, 0.5391110777854919]
+  Orientation (xyzw): [-0.287418395280838, 0.5566380620002747, -0.447620153427124, 0.6381072998046875]
+
+Saved results: <ubuntu_demo_outputs>/sam3d_results.json
+
+================================================================================
+STEP 3 COMPLETE
+================================================================================
+Processed 2 objects, reconstructed 2
+============================================================
+EXPORT TRANSFORMED SCENE
+============================================================
+Input scene:  <ubuntu_demo_outputs>/scene_output.json
+Camera frame: <demo_capture>/camera_frame_pose.json
+Output JSON:  <ubuntu_demo_outputs>/scene_output_new.json
+Output meshes: <ubuntu_demo_outputs>/transformed_meshes
+============================================================
+
+Object 0: light blue bowl
+  Original position: [ 0.08807129 -0.08564991  0.49103075]
+  Original orientation: [0.26626566 0.87947971 0.37732011 0.11509814]
+  After perm: position=[-0.08807129  0.08564991  0.49103075]
+  Loaded mesh: 191274 vertices, 382540 faces
+  Saved transformed mesh: <ubuntu_demo_outputs>/transformed_meshes/obj_0000_transformed.obj
+  After align_z: orientation=[ 0.19587962  0.88847993 -0.41213995  0.04873646]
+  After tag_frame+set_z_zero: position=[-0.1883095 -0.1076872  0.       ], orientation=[-4.22565729e-17  1.76363353e-17  2.34294946e-01  9.72165561e-01]
+
+Object 1: orange fruit
+  Original position: [-0.11705769 -0.00830499  0.53911108]
+  Original orientation: [-0.2874184   0.55663806 -0.44762015  0.6381073 ]
+  After perm: position=[0.11705769 0.00830499 0.53911108]
+  Loaded mesh: 586610 vertices, 1173276 faces
+  Saved transformed mesh: <ubuntu_demo_outputs>/transformed_meshes/obj_0001_transformed.obj
+  After align_z: orientation=[-0.63496305  0.65160367 -0.2670537  -0.31767421]
+  After tag_frame+set_z_zero: position=[-0.38795108 -0.20961165  0.        ], orientation=[-3.73994650e-17  4.24047842e-18 -6.83806126e-01  7.29663746e-01]
+
+============================================================
+EXPORT COMPLETE!
+============================================================
+New scene JSON: <ubuntu_demo_outputs>/scene_output_new.json
+Transformed meshes: <ubuntu_demo_outputs>/transformed_meshes
+Total objects: 2
+============================================================
+============================================================
+VISUALIZE TRANSFORMED SCENE
+============================================================
+Scene JSON: <ubuntu_demo_outputs>/scene_output_new.json
+Scene description: 
+Number of objects: 2
+============================================================
+
+=== Objects in World/Table Frame ===
+
+Object 0: light blue bowl
+  Mesh: obj_0000_transformed.obj
+  Position: [-0.1883095 -0.1076872  0.       ]
+  Orientation (quat): [-4.22565729e-17  1.76363353e-17  2.34294946e-01  9.72165561e-01]
+  Loaded: 191274 vertices, 382540 faces
+  Z-range in world: [-0.0000, 0.0311]
+
+Object 1: orange fruit
+  Mesh: obj_0001_transformed.obj
+  Position: [-0.38795108 -0.20961165  0.        ]
+  Orientation (quat): [-3.73994650e-17  4.24047842e-18 -6.83806126e-01  7.29663746e-01]
+  Loaded: 586610 vertices, 1173276 faces
+  Z-range in world: [-0.0000, 0.0668]
+
+Screenshot saved to: <ubuntu_demo_outputs>/final_scene_visualization.png
+Loading scene data from: <ubuntu_demo_outputs>/scene_output_new.json
+Loading Gemini data from: <ubuntu_demo_outputs>/gemini_scene.json
+
+Processing 2 objects...
+
+Object 0:
+  Object 0: obj_0000_transformed.obj (material: plastic -> plastic)
+    Vertices: 191274, Faces: 382540
+    BBox dims (m): lx=0.148113, ly=0.152695, lz=0.031072
+    Volume used: bbox_fallback  fill_ratio=0.060  (mesh/bbox=0.059)  vol=4.21636746e-05 m^3 (42.16 cm^3)
+    Density: 1200.000 kg/m^3
+    Mass: 0.0505964096 kg (50.60 g)
+    Inertia diag: [1.023786e-04, 9.656717e-05, 1.908042e-04]
+    URDF created: <ubuntu_demo_outputs>/urdfs/obj_0000.urdf
+
+Object 1:
+  Object 1: obj_0001_transformed.obj (material: other -> unknown)
+    Vertices: 586610, Faces: 1173276
+    BBox dims (m): lx=0.068174, ly=0.063600, lz=0.066763
+    Volume used: bbox_fallback  fill_ratio=0.550  (mesh/bbox=0.028)  vol=0.000159211497 m^3 (159.21 cm^3)
+    Density: 1000.000 kg/m^3
+    Mass: 0.159211497 kg (159.21 g)
+    Inertia diag: [1.128048e-04, 1.208016e-04, 1.153309e-04]
+    URDF created: <ubuntu_demo_outputs>/urdfs/obj_0001.urdf
+
+Saving final scene data to: <ubuntu_demo_outputs>/scene_output_final.json
+
+============================================================
+OBJ to URDF conversion completed successfully!
+============================================================
+URDFs saved to: <ubuntu_demo_outputs>/urdfs
+Final scene JSON: <ubuntu_demo_outputs>/scene_output_final.json
+[2026-07-04 18:59:45] [INFO] Loading config from: <ubuntu_demo_config>
+[2026-07-04 18:59:45] [INFO] ============================================================
+[2026-07-04 18:59:45] [INFO] SCENE RECONSTRUCTION PIPELINE
+[2026-07-04 18:59:45] [INFO] ============================================================
+[2026-07-04 18:59:45] [INFO] Input:  <demo_capture>
+[2026-07-04 18:59:45] [INFO] Output: <ubuntu_demo_outputs>
+[2026-07-04 18:59:45] [INFO] ============================================================
+[2026-07-04 18:59:45] [INFO] STEP 1: Skipped (using existing gemini_scene.json)
+[2026-07-04 18:59:45] [INFO] Found 2 objects from Gemini: ['light blue bowl', 'orange fruit']
+[2026-07-04 18:59:45] [INFO] STEP 2: SAM3 Segmentation
+[2026-07-04 18:59:45] [INFO] Running SAM3 Segmentation in conda env 'sam3'
+[2026-07-04 18:59:45] [INFO] Command: conda run -n sam3 --no-capture-output python <video2sim_forge>/scripts/step2_sam3.py --image <demo_capture>/scene_capture/image/0.png --output_dir <ubuntu_demo_outputs> --prompts <ubuntu_demo_outputs>/gemini_scene.json
+[2026-07-04 18:59:56] [INFO] Completed: SAM3 Segmentation
+[2026-07-04 18:59:56] [INFO] Found 2 masks
+[2026-07-04 18:59:56] [INFO] STEP 3: SAM3D Reconstruction
+[2026-07-04 18:59:56] [INFO] Running SAM3D Reconstruction in conda env 'sam3d-objects'
+[2026-07-04 18:59:56] [INFO] Command: conda run -n sam3d-objects --no-capture-output python <video2sim_forge>/scripts/step3_sam3d.py --image <demo_capture>/scene_capture/image/0.png --depth <demo_capture>/scene_capture/depth/0.png --masks <ubuntu_demo_outputs> --cam_k <demo_capture>/cam_params.txt --output_dir <ubuntu_demo_outputs>
+[2026-07-04 19:00:43] [INFO] Completed: SAM3D Reconstruction
+[2026-07-04 19:00:43] [INFO] STEP 4: Assembling Final Output
+[2026-07-04 19:00:43] [INFO] Final output written to: <ubuntu_demo_outputs>/scene_output.json
+[2026-07-04 19:00:43] [INFO] STEP 5: Export Transformed Scene
+[2026-07-04 19:00:43] [INFO] Starting: Export Transformed Scene
+[2026-07-04 19:00:43] [INFO] Command: <venv_python> <video2sim_forge>/scripts/step4_export_transforms.py --scene_json <ubuntu_demo_outputs>/scene_output.json --camera_frame_json <demo_capture>/camera_frame_pose.json --output_json <ubuntu_demo_outputs>/scene_output_new.json
+[2026-07-04 19:00:47] [INFO] Completed: Export Transformed Scene
+[2026-07-04 19:00:47] [INFO] STEP 6: Visualize Transformed Scene
+[2026-07-04 19:00:47] [INFO] Starting: Visualize Transformed Scene
+[2026-07-04 19:00:47] [INFO] Command: <venv_python> <video2sim_forge>/scripts/step5_visualize.py --scene_json <ubuntu_demo_outputs>/scene_output_new.json --screenshot <ubuntu_demo_outputs>/final_scene_visualization.png
+[2026-07-04 19:00:52] [INFO] Completed: Visualize Transformed Scene
+[2026-07-04 19:00:52] [INFO] STEP 7: OBJ to URDF Conversion
+[2026-07-04 19:00:52] [INFO] Starting: OBJ to URDF Conversion
+[2026-07-04 19:00:52] [INFO] Command: <venv_python> <video2sim_forge>/scripts/step6_obj_to_urdf.py --scene_json <ubuntu_demo_outputs>/scene_output_new.json --gemini_json <ubuntu_demo_outputs>/gemini_scene.json --output_json <ubuntu_demo_outputs>/scene_output_final.json
+[2026-07-04 19:00:55] [INFO] Completed: OBJ to URDF Conversion
+[2026-07-04 19:00:55] [INFO] ============================================================
+[2026-07-04 19:00:55] [INFO] PIPELINE COMPLETED SUCCESSFULLY
+[2026-07-04 19:00:55] [INFO] ============================================================
+[2026-07-04 19:00:55] [INFO] Results saved to: <ubuntu_demo_outputs>
+[2026-07-04 19:00:55] [INFO] Output files:
+[2026-07-04 19:00:55] [INFO]   - gemini_scene.json: Scene description from Gemini
+[2026-07-04 19:00:55] [INFO]   - masks/: Per-object segmentation masks
+[2026-07-04 19:00:55] [INFO]   - meshes/: Reconstructed 3D meshes (.obj)
+[2026-07-04 19:00:55] [INFO]   - sam3d_results.json: Mesh paths and poses
+[2026-07-04 19:00:55] [INFO]   - scene_output.json: Combined output (camera frame)
+[2026-07-04 19:00:55] [INFO]   - scene_output_new.json: Transformed poses (world frame)
+[2026-07-04 19:00:55] [INFO]   - transformed_meshes/: Mesh files with local edits
+[2026-07-04 19:00:55] [INFO]   - final_scene_visualization.png: 3D visualization
+[2026-07-04 19:00:55] [INFO]   - scene_output_final.json: Final output with URDF paths and physics
+[2026-07-04 19:00:55] [INFO]   - urdfs/: URDF files with mass, inertia, friction
+[2026-07-04 19:00:55] [INFO] ============================================================
+
+======================================================================
+Pipeline Timing Report
+======================================================================
+Input  : <demo_capture>
+Output : <ubuntu_demo_outputs>
+Stamp  : 2026-07-04T19:00:55
+----------------------------------------------------------------------
+  Step 1: Gemini                      0.00s  [skipped]
+  Step 2: SAM3                       10.51s  [completed]
+  Step 3: SAM3D                      47.43s  [completed]
+  Step 4: Assemble Output             0.00s  [completed]
+  Step 5: Export Transforms           3.56s  [completed]
+  Step 6: Visualize                   4.61s  [completed]
+  Step 7: OBJ to URDF                 2.93s  [completed]
+----------------------------------------------------------------------
+  TOTAL                             1m 9.0s
+======================================================================
+

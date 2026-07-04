@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<robot name="obj_0000">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.000057500 -0.000001500 0.015536000" rpy="0 0 0"/>
+      <mass value="0.050596410"/>
+      <inertia
+        ixx="0.000102378597496" ixy="0" ixz="0"
+        iyy="9.65671687068e-05" iyz="0"
+        izz="0.000190804220491"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../transformed_meshes/obj_0000_transformed.obj"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="../transformed_meshes/obj_0000_transformed.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <gazebo reference="base_link">
+    <mu1>0.350000</mu1>
+    <mu2>0.250000</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>0.1</maxVel>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- reference only: rolling_friction=0.002000, restitution=0.500000 -->
+</robot>
