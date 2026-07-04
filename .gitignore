@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments and secrets
+.env
+.env.*
+!/.env.example
+pipeline.env
+*.key
+*.pem
+
+# Local data and generated outputs
+input/
+output/
+runs/
+data/
+datasets/
+scene_capture/
+*.mp4
+*.mov
+*.avi
+*.bag
+*.obj
+*.glb
+*.urdf
+*.png
+*.jpg
+*.jpeg
+*.npy
+*.npz
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+
