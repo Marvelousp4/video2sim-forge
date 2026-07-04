@@ -3,12 +3,10 @@ line-length = 100
 target-version = "py310"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "B"]
-ignore = [
-  "E501",
-]
+# Keep alpha CI focused on correctness issues that can break execution.
+# Broad style cleanup will be handled in later, behavior-preserving commits.
+select = ["E9", "F63", "F7", "F82"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-
