@@ -1,62 +1,128 @@
-# Scene Reconstruction Pipeline
+# Video2Sim Forge
 
-A complete pipeline for reconstructing 3D scenes from RGB-D videos using Gemini, SAM3, and SAM3D.
+Video2Sim Forge is an early-stage robotics pipeline for turning RGB-D scene
+captures into simulation-ready assets: object prompts, segmentation masks,
+3D meshes, world-frame poses, URDF files, and approximate physics metadata.
 
-## Pipeline Steps
+The current prototype combines:
 
-1. **Step 1**: Gemini Scene Analysis
-2. **Step 2**: SAM3 Segmentation 
-3. **Step 3**: SAM3D Reconstruction
-4. **Step 4**: Assemble Final Output
-5. **Step 5**: Export Transformed Scene (poses → world frame, meshes with local edits)
-6. **Step 6**: Visualize Transformed Scene
-7. **Step 7**: OBJ to URDF Conversion (calculate mass, inertia, friction from mesh volume and material) 
+- Gemini scene analysis for object prompts, task context, and material labels
+- SAM3 text-guided segmentation
+- SAM3D object reconstruction
+- AprilTag/RealSense camera-frame utilities
+- mesh pose transforms, visualization, and OBJ-to-URDF export
 
-## Requirements
+The goal is to make video-to-simulation workflows more reproducible for robotics
+manipulation, warehouse automation, and sim2real experimentation.
 
-- Python 3.8+
-- Two conda environments: `sam3` and `sam3d-objects`
-- GEMINI_API_KEY environment variable
-- Input: RGB-D video (color_video.mp4, depth/*.png), camera intrinsics (cam_K.txt), camera poses (camera_frame_pose.json)
+## Status
+
+This repository is public-alpha quality. The core scripts are available, but
+the project still needs sample data, broader environment validation, tests, and
+cleaner package boundaries before a stable release.
+
+## Pipeline
+
+1. Gemini scene analysis extracts object prompts, manipulated object labels,
+   task type, and material hints from video frames.
+2. SAM3 segments each prompted object from the selected RGB frame.
+3. SAM3D reconstructs object meshes and estimates 6-DOF poses from RGB-D input.
+4. The pipeline assembles a scene JSON in the camera frame.
+5. Optional AprilTag transforms export poses and meshes into a table/world frame.
+6. Optional visualization saves a rendered scene preview.
+7. Optional URDF export estimates mass, inertia, and friction from mesh geometry
+   and material labels.
 
 ## Quick Start
 
-1. **Configure the pipeline** - Edit `config.yaml`:
-```yaml
-input_dir: "input/Final_1"
-output_dir: "output/Final_1"
-camera_frame_json: "input/Final_1/camera_frame_pose.json"
-```
+Install base Python dependencies:
 
-2. **Run the pipeline**:
 ```bash
-python run_pipeline.py --config config.yaml
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -U pip
+python -m pip install -r requirements.txt
 ```
 
-## Output Files
+Copy the example config and point it at your own capture:
 
-```
-output/Final_1/
-├── gemini_scene.json              # Scene description from Gemini
-├── masks/                         # Per-object segmentation masks
-├── obj_*.obj                      # Original 3D meshes
-├── scene_output.json              # Original poses (camera frame)
-├── scene_output_new.json          # Transformed poses (world frame)
-├── scene_output_final.json        # Final output with URDF paths, mass, inertia, friction
-├── transformed_meshes/            # Meshes with local edits applied
-│   └── obj_*_transformed.obj
-├── urdfs/                         # URDF files with physics properties
-│   └── obj_*.urdf
-└── final_scene_visualization.png  # 3D visualization
+```bash
+cp config.example.yaml config.local.yaml
 ```
 
-## Physics Properties
+Set your Gemini key for Step 1:
 
-The pipeline automatically calculates physics properties for each object:
+```bash
+export GEMINI_API_KEY="..."
+```
 
-- **Mass**: Calculated from mesh volume × material density
-- **Inertia**: Approximated using bounding box dimensions
-- **Friction**: Material-specific coefficients (static, dynamic, rolling, restitution)
-- **Material Types**: metal, plastic, wood, cardboard, glass, ceramic, rubber, fabric
+Run the orchestrator:
 
-Material properties are obtained from Gemini's analysis and stored in `gemini_scene.json`.
+```bash
+python run_pipeline.py --config config.local.yaml
+```
+
+For SAM3, SAM3D, and RealSense setup, see [docs/dependencies.md](docs/dependencies.md).
+For expected capture and output formats, see [docs/input-output.md](docs/input-output.md).
+
+## Expected Input
+
+At minimum, a capture should provide:
+
+- `color_video.mp4` or `video.mp4`
+- `depth/0.png`, `depth.mp4`, or `depth_video.mp4`
+- `cam_K.txt` or `cam_params.txt`
+- `scene_capture/image/0.png`
+- `scene_capture/depth/0.png`
+- optional `camera_frame_pose.json` for world-frame export
+
+See [examples/sample_capture](examples/sample_capture) for the intended layout.
+
+## Main Outputs
+
+```text
+output_dir/
+├── gemini_scene.json
+├── mask_*.png
+├── mask_to_prompt_mapping.json
+├── obj_*.obj
+├── sam3d_results.json
+├── scene_output.json
+├── scene_output_new.json
+├── scene_output_final.json
+├── transformed_meshes/
+├── urdfs/
+├── final_scene_visualization.png
+├── pipeline_timing.txt
+└── pipeline_timing.json
+```
+
+## Development Checks
+
+```bash
+python -m compileall -q .
+python -m ruff check .
+python -m pytest
+```
+
+End-to-end execution requires external model environments, API access, and
+capture data. Pull requests should state which partial or full checks were run.
+
+## Roadmap
+
+- Add a small public sample capture and expected output fixture.
+- Add unit tests for JSON assembly, transform math, and URDF physics export.
+- Package shared code into importable modules instead of script-only steps.
+- Add Docker or conda-lock setup for reproducible Linux GPU environments.
+- Add GitHub Actions for compile, lint, and unit tests.
+- Add benchmark notes for common robotics manipulation scenes.
+
+## Security and Data
+
+Do not commit API keys, private RGB-D captures, generated customer-site assets,
+camera serial numbers, or model checkpoints. See [SECURITY.md](SECURITY.md).
+
+## License
+
+MIT License. See [LICENSE](LICENSE).
+
