@@ -25,6 +25,7 @@ manipulation, warehouse automation, and sim2real experimentation.
 This repository is public-alpha quality. The core scripts, docs, tests, and CI
 scaffolding are available, but the project still needs sample data, broader
 environment validation, and cleaner package boundaries before a stable release.
+See [CHANGELOG.md](CHANGELOG.md) for the current alpha release notes.
 
 ## Pipeline
 

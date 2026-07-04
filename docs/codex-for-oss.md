@@ -51,6 +51,8 @@ The repository includes:
 - a documented quickstart and dependency guide
 - an input/output contract for captures and generated artifacts
 - a sanitized proof fixture from a completed video-to-sim run
+- an Ubuntu GPU proof run with environment notes, logs, masks, scene JSON, URDFs,
+  timing, and visualization
 - issue and pull request templates
 - GitHub Actions for compile, lint, and unit tests
 - focused unit tests for model-independent pipeline logic
@@ -59,7 +61,7 @@ The repository includes:
 ## Near-Term Roadmap
 
 - publish a small redistributable raw capture for model-dependent reruns
-- expand the proof fixture with approved meshes and URDFs
+- publish large approved meshes through GitHub Releases or an external dataset
 - expand tests for transform math and URDF physics metadata
 - add clearer troubleshooting for SAM3/SAM3D environment setup
 - move shared helpers out of scripts into importable modules
