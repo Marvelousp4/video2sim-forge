@@ -64,11 +64,14 @@ export GEMINI_API_KEY="..."
 Run the orchestrator:
 
 ```bash
+python scripts/validate_config.py --config config.local.yaml
 python run_pipeline.py --config config.local.yaml
 ```
 
 For SAM3, SAM3D, and RealSense setup, see [docs/dependencies.md](docs/dependencies.md).
 For expected capture and output formats, see [docs/input-output.md](docs/input-output.md).
+For platform expectations, see [docs/environment.md](docs/environment.md) and
+[docs/ubuntu-gpu-setup.md](docs/ubuntu-gpu-setup.md).
 For a small completed-run fixture, see [examples/proof_run](examples/proof_run).
 
 ## Expected Input
@@ -109,9 +112,18 @@ scene preview from a completed bowl-and-fruit capture. The proof run includes a
 short capture video, first/middle/last input frames, and the final transformed
 scene visualization.
 
+The full Ubuntu GPU demo path is reserved at
+[examples/ubuntu_demo](examples/ubuntu_demo):
+
+```bash
+python scripts/validate_config.py --config examples/ubuntu_demo/config.yaml
+python run_pipeline.py --config examples/ubuntu_demo/config.yaml
+```
+
 ## Development Checks
 
 ```bash
+python scripts/validate_config.py --config config.example.yaml
 python -m compileall -q .
 python -m ruff check .
 python -m pytest

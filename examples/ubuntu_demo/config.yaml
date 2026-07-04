@@ -1,0 +1,17 @@
+# Replace these placeholder paths on the Ubuntu GPU machine.
+
+input_dir: "/data/video2sim-forge/demo_capture"
+output_dir: "/data/video2sim-forge/demo_capture/Scene_reconstruction"
+camera_frame_json: "/data/video2sim-forge/demo_capture/camera_frame_pose.json"
+
+gemini_model: "auto-pro"
+sam3_env: "sam3"
+sam3d_env: "sam3d-objects"
+
+skip_gemini: false
+skip_sam3: false
+skip_sam3d: false
+skip_export: false
+skip_visualize: false
+skip_obj_to_urdf: false
+
