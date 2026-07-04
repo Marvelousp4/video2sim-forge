@@ -135,12 +135,11 @@ python -m pytest
 End-to-end execution requires external model environments, API access, and
 capture data. Pull requests should state which partial or full checks were run.
 
-## Maintainer Story
+## Maintainer Workflow
 
-The Codex for Open Source program supports maintainers using Codex for day-to-day
-coding, triage, review, release workflows, and security coverage. Video2Sim
-Forge is a good fit for that workflow because many useful contributions are
-reviewable without private robot data or GPU-heavy model runs:
+Video2Sim Forge is maintained with a practical review workflow because many
+useful contributions are reviewable without private robot data or GPU-heavy
+model runs:
 
 - checking schema compatibility for `scene_output*.json`
 - reviewing transform math and failure handling
@@ -148,10 +147,8 @@ reviewable without private robot data or GPU-heavy model runs:
 - improving setup docs for new CUDA, SAM3, SAM3D, and RealSense environments
 - triaging reproducible installation and capture-layout issues
 
-See [docs/maintainer-workflow.md](docs/maintainer-workflow.md) for concrete
-Codex-assisted workflows and [docs/codex-for-oss.md](docs/codex-for-oss.md) for
-application positioning. Draft application responses are available in
-[docs/application-answers.md](docs/application-answers.md).
+See [docs/maintainer-workflow.md](docs/maintainer-workflow.md) for review,
+release, and contribution guidance.
 
 ## Roadmap
 

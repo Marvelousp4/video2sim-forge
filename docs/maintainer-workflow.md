@@ -8,9 +8,9 @@ visualization, and optional URDF export.
 Downstream policy training, benchmark automation, and real-robot deployment are
 important consumers, but they are outside this repository's current scope.
 
-## Codex-Assisted OSS Work
+## AI-Assisted Maintenance
 
-Codex can help with:
+AI coding assistants can help with:
 
 - issue triage for installation, model setup, and input-format reports
 - pull request review for transform math, output schema, and URDF export changes

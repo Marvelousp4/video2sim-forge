@@ -23,7 +23,8 @@ Initial public alpha for Video2Sim Forge.
 - GitHub Actions CI for compile, lint, and unit tests.
 - Unit tests for output assembly, proof fixtures, config validation, transform
   helpers, and URDF export behavior.
-- Codex for OSS positioning and application draft documentation.
+- Maintainer workflow documentation for review, release, and contribution
+  practices.
 
 ### Validation
 
@@ -43,4 +44,3 @@ Initial public alpha for Video2Sim Forge.
 - Step 1 Gemini was skipped in the Ubuntu GPU proof run by reusing an existing
   sanitized `gemini_scene.json`; future releases should add a fully
   redistributable raw capture and live scene-analysis repro path.
-

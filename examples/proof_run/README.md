@@ -48,4 +48,4 @@ public fixture yet. They are useful for full end-to-end reproduction, but they
 need a licensing/privacy review before being published.
 
 For now, this fixture supports docs, schema tests, maintainer review, and
-application evidence for the video-to-sim asset path.
+evidence for the video-to-sim asset path.
