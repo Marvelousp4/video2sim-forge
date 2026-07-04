@@ -4,6 +4,11 @@ Video2Sim Forge is an early-stage robotics pipeline for turning RGB-D scene
 captures into simulation-ready assets: object prompts, segmentation masks,
 3D meshes, world-frame poses, URDF files, and approximate physics metadata.
 
+The repository is intentionally scoped to the video-to-simulation asset path.
+It does not try to cover downstream robot policy training, deployment, or
+closed-loop sim2real experiments. Those workflows can consume the exported
+scene assets, but they are outside this project boundary.
+
 The current prototype combines:
 
 - Gemini scene analysis for object prompts, task context, and material labels
@@ -17,9 +22,9 @@ manipulation, warehouse automation, and sim2real experimentation.
 
 ## Status
 
-This repository is public-alpha quality. The core scripts are available, but
-the project still needs sample data, broader environment validation, tests, and
-cleaner package boundaries before a stable release.
+This repository is public-alpha quality. The core scripts, docs, tests, and CI
+scaffolding are available, but the project still needs sample data, broader
+environment validation, and cleaner package boundaries before a stable release.
 
 ## Pipeline
 
@@ -64,6 +69,7 @@ python run_pipeline.py --config config.local.yaml
 
 For SAM3, SAM3D, and RealSense setup, see [docs/dependencies.md](docs/dependencies.md).
 For expected capture and output formats, see [docs/input-output.md](docs/input-output.md).
+For a small completed-run fixture, see [examples/proof_run](examples/proof_run).
 
 ## Expected Input
 
@@ -97,6 +103,12 @@ output_dir/
 └── pipeline_timing.json
 ```
 
+The repository includes a sanitized proof run at
+[examples/proof_run](examples/proof_run) with derived JSON outputs and a rendered
+scene preview from a completed bowl-and-fruit capture. The proof run includes a
+short capture video, first/middle/last input frames, and the final transformed
+scene visualization.
+
 ## Development Checks
 
 ```bash
@@ -108,13 +120,31 @@ python -m pytest
 End-to-end execution requires external model environments, API access, and
 capture data. Pull requests should state which partial or full checks were run.
 
+## Maintainer Story
+
+The Codex for Open Source program supports maintainers using Codex for day-to-day
+coding, triage, review, release workflows, and security coverage. Video2Sim
+Forge is a good fit for that workflow because many useful contributions are
+reviewable without private robot data or GPU-heavy model runs:
+
+- checking schema compatibility for `scene_output*.json`
+- reviewing transform math and failure handling
+- generating focused tests for pure Python helpers
+- improving setup docs for new CUDA, SAM3, SAM3D, and RealSense environments
+- triaging reproducible installation and capture-layout issues
+
+See [docs/maintainer-workflow.md](docs/maintainer-workflow.md) for concrete
+Codex-assisted workflows and [docs/codex-for-oss.md](docs/codex-for-oss.md) for
+application positioning. Draft application responses are available in
+[docs/application-answers.md](docs/application-answers.md).
+
 ## Roadmap
 
-- Add a small public sample capture and expected output fixture.
+- Add a small redistributable raw capture that can rerun model-dependent steps.
+- Expand the sanitized proof fixture with approved meshes and URDFs.
 - Add unit tests for JSON assembly, transform math, and URDF physics export.
 - Package shared code into importable modules instead of script-only steps.
 - Add Docker or conda-lock setup for reproducible Linux GPU environments.
-- Add GitHub Actions for compile, lint, and unit tests.
 - Add benchmark notes for common robotics manipulation scenes.
 
 ## Security and Data
@@ -125,4 +155,3 @@ camera serial numbers, or model checkpoints. See [SECURITY.md](SECURITY.md).
 ## License
 
 MIT License. See [LICENSE](LICENSE).
-

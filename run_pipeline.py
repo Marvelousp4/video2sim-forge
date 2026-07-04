@@ -96,6 +96,13 @@ def run_conda_step(conda_env: str, script_path: str, args: list, step_name: str)
         return False
 
 
+def require_file(path: Path, description: str):
+    """Exit early with a clear message when a required pipeline input is missing."""
+    if not path.exists():
+        log(f"Missing {description}: {path}", "ERROR")
+        sys.exit(1)
+
+
 def assemble_final_output(output_dir: Path) -> dict:
     """Assemble final scene_output.json from intermediate results."""
     
@@ -288,7 +295,7 @@ def assemble_final_output(output_dir: Path) -> dict:
                 target_object_norm = p
                 break
 
-        # 2) substring fallback — skip empty prompts and the manipulated object
+        # 2) substring fallback - skip empty prompts and the manipulated object
         if target_id is None:
             for obj in final_objects:
                 p = obj.get("prompt", "")
@@ -556,7 +563,7 @@ Examples:
     # Resolve paths
     input_dir = Path(args.input_dir).resolve()
     output_dir = Path(args.output_dir).resolve()
-    scene_dir = Path(args.input_dir) / "scene_capture"
+    scene_dir = input_dir / "scene_capture"
     scripts_dir = Path(__file__).parent / "scripts"
     
     # Validate input directory
@@ -581,15 +588,17 @@ Examples:
         cam_k_path = input_dir / "cam_params.txt"
     
     # Validate all files exist
-    if not video_path.exists():
-        log(f"Missing video.mp4 or color_video.mp4 in {input_dir}", "ERROR")
-        sys.exit(1)
-    if not depth_path.exists():
-        log(f"Missing depth.mp4 or depth_video.mp4 in {input_dir}", "ERROR")
-        sys.exit(1)
-    if not cam_k_path.exists():
-        log(f"Missing cam_K.txt or cam_params.txt in {input_dir}", "ERROR")
-        sys.exit(1)
+    require_file(video_path, "video.mp4 or color_video.mp4")
+    require_file(depth_path, "depth/0.png, depth.mp4, or depth_video.mp4")
+    require_file(cam_k_path, "cam_K.txt or cam_params.txt")
+
+    scene_image_path = scene_dir / "image" / "0.png"
+    scene_depth_path = scene_dir / "depth" / "0.png"
+    if not args.skip_sam3:
+        require_file(scene_image_path, "scene_capture/image/0.png for SAM3")
+    if not args.skip_sam3d:
+        require_file(scene_image_path, "scene_capture/image/0.png for SAM3D")
+        require_file(scene_depth_path, "scene_capture/depth/0.png for SAM3D")
     
     # Check GEMINI_API_KEY
     if not args.skip_gemini and not os.environ.get("GEMINI_API_KEY"):

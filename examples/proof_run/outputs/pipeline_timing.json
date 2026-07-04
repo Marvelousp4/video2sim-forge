@@ -1,0 +1,43 @@
+{
+  "input_dir": "<proof_run_input_dir>",
+  "output_dir": "<proof_run_output_dir>",
+  "timestamp": "2026-06-05T00:51:24",
+  "total_s": 93.728,
+  "steps": [
+    {
+      "name": "Step 1: Gemini",
+      "duration_s": 0.0,
+      "status": "skipped"
+    },
+    {
+      "name": "Step 2: SAM3",
+      "duration_s": 19.722,
+      "status": "completed"
+    },
+    {
+      "name": "Step 3: SAM3D",
+      "duration_s": 55.161,
+      "status": "completed"
+    },
+    {
+      "name": "Step 4: Assemble Output",
+      "duration_s": 0.001,
+      "status": "completed"
+    },
+    {
+      "name": "Step 5: Export Transforms",
+      "duration_s": 3.444,
+      "status": "completed"
+    },
+    {
+      "name": "Step 6: Visualize",
+      "duration_s": 13.115,
+      "status": "completed"
+    },
+    {
+      "name": "Step 7: OBJ to URDF",
+      "duration_s": 2.285,
+      "status": "completed"
+    }
+  ]
+}

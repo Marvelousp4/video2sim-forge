@@ -1,7 +1,12 @@
 # Maintainer Workflow
 
 Video2Sim Forge is intended to be maintained as an open robotics tool, not just
-as a one-off research script dump.
+as a one-off research script dump. The maintained surface is the video-to-sim
+asset pipeline: scene analysis, segmentation, reconstruction, transforms,
+visualization, and optional URDF export.
+
+Downstream policy training, benchmark automation, and real-robot deployment are
+important consumers, but they are outside this repository's current scope.
 
 ## Codex-Assisted OSS Work
 
@@ -12,12 +17,15 @@ Codex can help with:
 - test generation for pure Python utilities
 - documentation updates when dependencies or setup paths change
 - release note drafting from merged commits
+- security review for accidental API keys, private captures, or generated
+  customer-site assets
 
 Useful prompts:
 
 ```text
 Review this PR for behavior regressions in scene JSON generation and URDF export.
-Focus on bugs, missing tests, and backward-incompatible schema changes.
+Focus on bugs, missing tests, and backward-incompatible schema changes. Treat
+robot training or deployment changes as out of scope unless they are docs-only.
 ```
 
 ```text
@@ -50,4 +58,3 @@ touch camera or model-dependent code.
 - `scripts/step5_visualize.py`: PyVista scene rendering
 - `scripts/step6_obj_to_urdf.py`: physics metadata and URDF export
 - `camera/`: RealSense and AprilTag capture utilities
-

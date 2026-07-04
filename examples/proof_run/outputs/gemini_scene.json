@@ -1,0 +1,42 @@
+{
+  "objects": [
+    {
+      "prompt": "light blue bowl",
+      "fallback_prompt": "bowl",
+      "material_type": "plastic"
+    },
+    {
+      "prompt": "orange fruit",
+      "fallback_prompt": "fruit",
+      "material_type": "other"
+    }
+  ],
+  "manipulated_prompt": "orange fruit",
+  "task_type": "interactive object manip",
+  "target_prompt": "light blue bowl",
+  "hand_along_object_motion": null,
+  "raw": {
+    "scene": {
+      "objects": [
+        {
+          "prompt": "light blue bowl",
+          "fallback_prompt": "bowl",
+          "material_type": "plastic"
+        },
+        {
+          "prompt": "orange fruit",
+          "fallback_prompt": "fruit",
+          "material_type": "other"
+        }
+      ],
+      "manipulated_object": {
+        "prompt": "orange fruit"
+      },
+      "task_type": "interactive object manip",
+      "target_object": {
+        "prompt": "light blue bowl"
+      },
+      "hand_along_object_motion": null
+    }
+  }
+}

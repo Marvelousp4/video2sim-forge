@@ -1,7 +1,9 @@
 import json
 from pathlib import Path
 
-from run_pipeline import _format_duration, assemble_final_output
+import pytest
+
+from run_pipeline import _format_duration, assemble_final_output, require_file
 
 
 def test_format_duration_seconds_minutes_hours():
@@ -66,3 +68,17 @@ def test_assemble_final_output_supports_rich_mask_mapping(tmp_path: Path):
     assert output["objects"][0]["mesh_path"] == "obj_0000.obj"
     assert output["objects"][1]["pose"]["position_m"] == [0, 0, 0]
 
+
+def test_require_file_accepts_existing_file(tmp_path: Path):
+    capture_file = tmp_path / "scene_capture" / "image" / "0.png"
+    capture_file.parent.mkdir(parents=True)
+    capture_file.write_bytes(b"not a real image")
+
+    require_file(capture_file, "scene RGB frame")
+
+
+def test_require_file_exits_for_missing_file(tmp_path: Path):
+    with pytest.raises(SystemExit) as exc_info:
+        require_file(tmp_path / "missing.png", "scene RGB frame")
+
+    assert exc_info.value.code == 1

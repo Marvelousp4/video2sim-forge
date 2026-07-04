@@ -35,9 +35,13 @@ scene_capture/
 *.jpeg
 *.npy
 *.npz
+!examples/proof_run/outputs/final_scene_visualization.png
+!examples/proof_run/outputs/input_frame_first.png
+!examples/proof_run/outputs/input_frame_middle.png
+!examples/proof_run/outputs/input_frame_last.png
+!examples/proof_run/outputs/input_capture_preview.mp4
 
 # OS/editor
 .DS_Store
 .vscode/
 .idea/
-

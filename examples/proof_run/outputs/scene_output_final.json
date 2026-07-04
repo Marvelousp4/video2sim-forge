@@ -1,0 +1,92 @@
+{
+  "scene_description": "",
+  "objects": [
+    {
+      "object_id": 0,
+      "prompt": "light blue bowl",
+      "material_type": "plastic",
+      "mesh_path": "transformed_meshes/obj_0000_transformed.obj",
+      "pose": {
+        "position_m": [
+          -0.1883095036357584,
+          -0.10768720209851734,
+          0.0
+        ],
+        "orientation_quat_xyzw": [
+          -8.565076791585433e-17,
+          2.0520496479840102e-17,
+          0.2342949463216426,
+          0.9721655610687608
+        ]
+      },
+      "is_manipulated": false,
+      "reconstruction_status": "ok",
+      "urdf_path": "<proof_run_output_dir>/urdfs/obj_0000.urdf",
+      "mass": 0.050594118528883604,
+      "inertia": {
+        "ixx": 0.00010237112455548715,
+        "ixy": 0.0,
+        "ixz": 0.0,
+        "iyy": 9.656253405254106e-05,
+        "iyz": 0.0,
+        "izz": 0.00019079300556453278
+      },
+      "friction": {
+        "static": 0.35,
+        "dynamic": 0.25,
+        "rolling": 0.002,
+        "restitution": 0.5
+      },
+      "volume_m3": 4.216176544073634e-05
+    },
+    {
+      "object_id": 1,
+      "prompt": "orange fruit",
+      "material_type": "other",
+      "mesh_path": "transformed_meshes/obj_0001_transformed.obj",
+      "pose": {
+        "position_m": [
+          -0.38795107749106766,
+          -0.20961165467362558,
+          0.0
+        ],
+        "orientation_quat_xyzw": [
+          -1.1411657399020698e-16,
+          -1.456175032687537e-17,
+          -0.6838061259744835,
+          0.7296637458992798
+        ]
+      },
+      "is_manipulated": true,
+      "reconstruction_status": "ok",
+      "urdf_path": "<proof_run_output_dir>/urdfs/obj_0001.urdf",
+      "mass": 0.15920911192824003,
+      "inertia": {
+        "ixx": 0.00011280130950620365,
+        "ixy": 0.0,
+        "ixz": 0.0,
+        "iyy": 0.00012079804190709291,
+        "iyz": 0.0,
+        "izz": 0.00011532914729843153
+      },
+      "friction": {
+        "static": 0.5,
+        "dynamic": 0.4,
+        "rolling": 0.003,
+        "restitution": 0.3
+      },
+      "volume_m3": 0.00015920911192824003
+    }
+  ],
+  "manipulated_object": "orange fruit",
+  "task_type": "interactive object manip",
+  "target_object": "light blue bowl",
+  "target_id": 0,
+  "hand_along_object_motion": null,
+  "pipeline_metadata": {
+    "generated_at": "2026-06-05T00:51:05.372924",
+    "num_objects": 2,
+    "gemini_source": "<proof_run_output_dir>/gemini_scene.json",
+    "sam3d_source": "<proof_run_output_dir>/sam3d_results.json"
+  }
+}

@@ -51,6 +51,11 @@ output_dir/
 └── pipeline_timing.json
 ```
 
+Use `scene_output.json` when a downstream simulator can consume camera-frame
+poses directly. Use `scene_output_new.json` when a calibrated table/world frame
+is available. Use `scene_output_final.json` when the downstream simulator wants
+URDF paths and approximate physics metadata.
+
 ## Scene JSON Fields
 
 `scene_output_final.json` is the simulation-facing artifact. Each object entry
@@ -71,3 +76,9 @@ includes:
 Do not commit private RGB-D captures, customer site data, generated meshes, or
 raw output directories. Keep shareable sample data small and clearly licensed.
 
+## Proof Fixture
+
+[examples/proof_run](../examples/proof_run) contains sanitized derived outputs
+from one completed bowl-and-fruit run. It is intended for schema inspection,
+documentation screenshots, and lightweight tests. It is not a full raw capture,
+so it cannot rerun Gemini, SAM3, or SAM3D by itself.
