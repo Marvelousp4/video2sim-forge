@@ -1,0 +1,6 @@
+# Optional camera and AprilTag capture dependencies.
+# pyrealsense2 availability varies by OS and Python version.
+
+dt-apriltags>=3.1
+pyrealsense2>=2.55; platform_system != "Darwin"
+

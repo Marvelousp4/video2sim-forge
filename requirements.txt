@@ -1,0 +1,12 @@
+# Base pipeline dependencies.
+# SAM3, SAM3D, CUDA-specific PyTorch, and RealSense packages are documented
+# separately because their installation depends on hardware and platform.
+
+numpy>=1.24
+scipy>=1.10
+opencv-python>=4.8
+Pillow>=10.0
+PyYAML>=6.0
+matplotlib>=3.7
+pyvista>=0.43
+
