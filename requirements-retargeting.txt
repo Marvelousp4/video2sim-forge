@@ -1,0 +1,14 @@
+# Optional V2S2R hand trajectory / robot retargeting dependencies.
+# Install these in a separate Ubuntu conda environment, not in the base
+# Video2Sim Forge venv.
+
+pybullet==3.2.7
+mujoco==3.2.4
+mink==0.0.11
+quadprog
+loop-rate-limiters
+pytorch_kinematics
+tyro
+numpy
+scipy
+opencv-python

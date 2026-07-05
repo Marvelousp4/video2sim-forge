@@ -73,6 +73,8 @@ For SAM3, SAM3D, and RealSense setup, see [docs/dependencies.md](docs/dependenci
 For expected capture and output formats, see [docs/input-output.md](docs/input-output.md).
 For platform expectations, see [docs/environment.md](docs/environment.md) and
 [docs/ubuntu-gpu-setup.md](docs/ubuntu-gpu-setup.md).
+For V2S2R hand trajectory and retargeting visualization, see
+[docs/hand-trajectory-v2s2r.md](docs/hand-trajectory-v2s2r.md).
 For a small completed-run fixture, see [examples/proof_run](examples/proof_run).
 
 ## Expected Input
@@ -157,6 +159,7 @@ release, and contribution guidance.
 - Add unit tests for JSON assembly, transform math, and URDF physics export.
 - Package shared code into importable modules instead of script-only steps.
 - Add Docker or conda-lock setup for reproducible Linux GPU environments.
+- Add a documented hand-trajectory retargeting bridge to V2S2R outputs.
 - Add benchmark notes for common robotics manipulation scenes.
 
 ## Security and Data

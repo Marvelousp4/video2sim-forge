@@ -74,8 +74,22 @@ On macOS, `pyrealsense2` may require a platform-specific installation path. If
 you only want to run the offline pipeline from existing RGB-D data, you do not
 need RealSense dependencies.
 
+## V2S2R Hand Trajectory Retargeting
+
+Hand trajectory visualization is an optional downstream workflow. Install it in
+a separate Ubuntu conda environment:
+
+```bash
+conda create -n v2s2r-retarget python=3.10 -y
+conda activate v2s2r-retarget
+python -m pip install -r requirements-retargeting.txt
+```
+
+Then clone V2S2R and run its retargeting scripts from that repository. See
+[hand-trajectory-v2s2r.md](hand-trajectory-v2s2r.md) for the full bridge
+workflow.
+
 ## Original Conda Exports
 
 The `env_export/` directory contains development-machine conda exports for
 reference. Prefer the instructions above for a clean public setup.
-
