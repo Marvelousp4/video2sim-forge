@@ -20,6 +20,32 @@ The current prototype combines:
 The goal is to make video-to-simulation workflows more reproducible for robotics
 manipulation, warehouse automation, and sim2real experimentation.
 
+## Demo Gallery
+
+The repository includes a small sanitized proof run so reviewers can inspect the
+shape of the pipeline without private captures or model checkpoints.
+
+**Input capture preview**
+
+[![Input capture first frame](examples/proof_run/outputs/input_frame_first.png)](examples/proof_run/outputs/input_capture_preview.mp4)
+
+Click the image above to open the short proof-run video:
+[examples/proof_run/outputs/input_capture_preview.mp4](examples/proof_run/outputs/input_capture_preview.mp4).
+
+**Pipeline artifacts**
+
+| Capture frame | SAM mask | Final scene visualization |
+| --- | --- | --- |
+| ![First RGB frame](examples/proof_run/outputs/input_frame_first.png) | ![Example SAM mask](examples/ubuntu_demo/outputs/mask_000.png) | ![Final scene visualization](examples/proof_run/outputs/final_scene_visualization.png) |
+
+**World-frame hand trajectory check**
+
+![Hand trajectory summary](docs/assets/hand_trajectory_summary.png)
+
+The hand-trajectory visualization is a bridge artifact for checking whether
+recorded hand motion is in the expected robot/table coordinate frame before
+using it in downstream retargeting or simulation work.
+
 ## Status
 
 This repository is public-alpha quality. The core scripts, docs, tests, and CI

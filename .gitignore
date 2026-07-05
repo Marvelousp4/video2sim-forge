@@ -45,6 +45,9 @@ scene_capture/
 !examples/ubuntu_demo/outputs/mask_001.png
 !examples/ubuntu_demo/outputs/urdfs/
 !examples/ubuntu_demo/outputs/urdfs/*.urdf
+!docs/assets/
+!docs/assets/*.png
+!docs/assets/*.mp4
 
 # OS/editor
 .DS_Store
